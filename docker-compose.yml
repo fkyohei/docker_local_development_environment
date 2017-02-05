@@ -33,7 +33,7 @@ services:
     api01:
         build: ./api
         ports:
-            - "23450:23450"
+            - "8080:80"
         links:
             - "db01:db01"
         container_name: api01

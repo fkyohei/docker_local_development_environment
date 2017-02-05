@@ -16,5 +16,11 @@ RUN yum clean all
 # PORT
 EXPOSE 80
 
+# SET httpd.conf
+ADD httpd.conf /etc/httpd/conf/httpd.conf
+
+# SET php.ini
+ADD php.ini /etc/php.ini
+
 # EXEC FOREGROUND
 CMD /usr/sbin/httpd -DFOREGROUND

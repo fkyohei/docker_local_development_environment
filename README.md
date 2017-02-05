@@ -24,12 +24,25 @@ docker-compose up -d
 
 ### 起動中のコンテナのプロセスを確認
 ```sh
+docker-compose ps
+# または
 docker ps
 ```
 
 ### コンテナを停止
 ```sh
 docker-compose stop
+```
+
+### Dockerfileを編集した場合、再ビルドを実行
+```sh
+# container_nameを指定しない場合は全コンテナ
+docker-compose build [container_name]
+```
+
+### コンテナログイン
+```sh
+docker exec -it [container_name] /bin/bash
 ```
 
 ## 参考
