@@ -45,6 +45,13 @@ docker-compose build [container_name]
 docker exec -it [container_name] /bin/bash
 ```
 
+### オレオレ証明書
+```
+openssl genrsa 2048 > localhost.key
+openssl req -new -key localhost.key > localhost.csr
+openssl x509 -req -days 3650 -signkey localhost.key < localhost.csr > localhost.crt
+```
+
 ## 参考
 [http://koni.hateblo.jp/entry/2017/01/28/150522](http://koni.hateblo.jp/entry/2017/01/28/150522)  
 [http://qiita.com/jey0taka/items/3fca0d0acb8aa4278284](http://qiita.com/jey0taka/items/3fca0d0acb8aa4278284)
