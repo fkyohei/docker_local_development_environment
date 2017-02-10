@@ -4,6 +4,9 @@ FROM centos:7
 RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 RUN rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 
+# Update yum
+RUN yum -y update
+
 # Install Apache
 RUN yum -y install httpd
 

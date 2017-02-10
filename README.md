@@ -52,6 +52,9 @@ openssl req -new -key localhost.key > localhost.csr
 openssl x509 -req -days 3650 -signkey localhost.key < localhost.csr > localhost.crt
 ```
 
+### mysqlデータ永続化
+busyboxを使用してローカルディレクトリにバインド
+
 ## 参考
 [http://koni.hateblo.jp/entry/2017/01/28/150522](http://koni.hateblo.jp/entry/2017/01/28/150522)  
 [http://qiita.com/jey0taka/items/3fca0d0acb8aa4278284](http://qiita.com/jey0taka/items/3fca0d0acb8aa4278284)

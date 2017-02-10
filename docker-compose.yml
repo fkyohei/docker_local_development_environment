@@ -1,5 +1,12 @@
 version: '2'
 services:
+    # data
+    data:
+        image: busybox
+        volumes:
+            - ./docker-data/mysql:/var/lib/mysql
+        container_name: data
+
     # mysql
     db01:
         build: ./mysql
@@ -7,16 +14,22 @@ services:
             - "3306:3306"
         environment:
             MYSQL_ROOT_PASSWORD: root
+        volumes_from:
+            - data
         container_name: db01
 
     # memcached
     memcached01:
         build: ./memcached
+        ports:
+            - "11211:11211"
         container_name: memcached01
 
     # redis
     redis01:
         build: ./redis
+        ports:
+            - "6379:6379"
         container_name: redis01
 
     # web
@@ -27,6 +40,8 @@ services:
             - "443:443"
         links:
             - "api01:api01"
+            - "memcached01:memcached01"
+            - "redis01:redis01"
         container_name: web01
 
     # api
